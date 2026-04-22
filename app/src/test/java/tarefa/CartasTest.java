@@ -14,5 +14,12 @@ public class CartasTest {
         c.usar(h, i);
 
         assertEquals(15, i.getVida());
+    
+        
+        new CartaEscudo("Def", "escudo", 1, 5).usar(h, i);
+        new CartaCura("Cura", "cura", 1, 5).usar(h, i);
+        new CartaEnergia("Energia", "energia", 0, 2).usar(h, i);
+
+        assertTrue(h.getVida() > 0);
     }
 }

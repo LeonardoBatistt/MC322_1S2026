@@ -1,3 +1,4 @@
+
 public class Inimigo extends Entidade {
 
     private int dano;

@@ -30,4 +30,13 @@ public class InimigoTest {
 
         assertFalse(i.estaVivo());
     }
+    
+    public void inimigoAtaca() {
+        Heroi h = new Heroi("Teste", 20, 3);
+        Inimigo i = new Inimigo("Goblin", 20, 5);
+
+        i.atacar(h);
+
+        assertTrue(h.getVida() < 20);
+    }
 }
