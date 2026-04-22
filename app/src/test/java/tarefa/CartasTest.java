@@ -22,4 +22,16 @@ public class CartasTest {
 
         assertTrue(h.getVida() > 0);
     }
+    @Test
+    public void cartasAvancadasFuncionam() {
+        Heroi h = new Heroi("Teste", 30, 5);
+        Inimigo i = new Inimigo("Dummy", 30, 0);
+
+        new CartaSacrificio("Sac", "sac", 1, 10, 5).usar(h, i);
+        new CartaEscudoPesado("Def+", "def", 2, 10).usar(h, i);
+        new CartaVenenoForte("Veneno+", "ven", 2, 5).usar(h, i);
+        new CartaFuria("Furia", "furia", 1).usar(h, i);
+
+        assertTrue(h.getVida() > 0);
+    }
 }
