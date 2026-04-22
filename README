@@ -1,0 +1,125 @@
+# MC322_1S2026 – Tarefa 4
+
+## Autor
+
+Leonardo Batista Da Silva
+
+---
+
+## Como executar
+
+No terminal, dentro da pasta do projeto:
+
+```
+./gradlew run
+```
+
+Caso esteja no Windows e haja problema com acentuação:
+
+```
+chcp 65001
+```
+
+---
+
+## Descrição do Projeto
+
+O projeto consiste em uma simulação de combate em turnos inspirada em jogos de cartas, onde o jogador controla um herói enfrentando inimigos utilizando diferentes tipos de cartas com efeitos variados.
+
+---
+
+## Alterações da Tarefa 3 para a Tarefa 4
+
+A Tarefa 4 introduziu melhorias tanto na estrutura do projeto quanto na jogabilidade.
+
+### 1. Refatoração da Arquitetura
+
+* Criação da classe `Jogo` para centralizar o fluxo principal da aplicação
+* Redução da responsabilidade da classe `App`, que passou a apenas iniciar o jogo
+* Melhor separação entre lógica de jogo, entidades e cartas
+
+---
+
+### 2. Sistema de Cartas Expandido
+
+Foram adicionadas novas cartas com comportamentos distintos:
+
+* **Energizar**: recupera energia do herói
+* **Sacrifício**: causa alto dano ao custo de vida
+* **Fúria**: faz com que a próxima carta seja utilizada duas vezes
+* **Veneno+**: aplica maior quantidade de veneno
+* **Defesa+**: concede maior quantidade de escudo
+
+Essas cartas aumentam a possibilidade de estratégia durante o combate.
+
+---
+
+### 3. Melhorias na Interface do Jogo
+
+* Exibição do custo de energia de cada carta
+* Exibição da descrição das cartas
+* Exibição do escudo dos inimigos
+* Mensagens mais claras sobre ações realizadas
+* Tratamento de entradas inválidas do usuário
+
+---
+
+### 4. Ajustes na Lógica de Combate
+
+* Verificação de energia antes de utilizar cartas
+* Cartas não são descartadas quando não podem ser utilizadas
+* Melhor visualização do dano causado e absorvido por escudo
+* Aplicação de efeitos como veneno de forma consistente
+
+---
+
+### 5. Sistema de Entrada (Scanner)
+
+* Implementação de validação para evitar erros como `NoSuchElementException`
+* Método auxiliar para leitura segura de inteiros
+
+---
+
+### 6. Integração com Gradle
+
+O projeto foi reorganizado para utilizar Gradle corretamente:
+
+* Estrutura padrão (`app/src/main/java`)
+* Configuração do `build.gradle` com plugin `application`
+* Definição da classe principal
+* Configuração de entrada padrão (`standardInput = System.in`)
+* Ajuste de encoding para UTF-8
+
+---
+
+### 7. Correção de Problemas Técnicos
+
+Durante a implementação, foram resolvidos diversos problemas:
+
+* Erro de leitura do `Scanner` ao executar com Gradle
+* Problemas de encoding (acentuação incorreta no terminal)
+* Conflitos de merge no Git
+* Organização incorreta do repositório (remoção de pastas por tarefa)
+
+---
+
+## Organização do Projeto
+
+O projeto segue a estrutura padrão de aplicações Gradle:
+
+```
+app/
+ └── src/main/java/
+```
+
+O versionamento das tarefas foi realizado por meio de **tags no Git**, conforme orientado.
+
+---
+
+## Considerações Finais
+
+A Tarefa 4 consolidou a estrutura do projeto e melhorou significativamente a experiência do usuário, além de corrigir problemas identificados na etapa anterior.
+
+As alterações realizadas permitiram uma aplicação mais organizada, robusta e alinhada com boas práticas de desenvolvimento.
+
+---
