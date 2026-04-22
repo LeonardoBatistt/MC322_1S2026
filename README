@@ -1,4 +1,4 @@
-# MC322_1S2026 – Tarefa 4
+# MC322_1S2026 – Tarefa 5
 
 ## Autor
 
@@ -24,102 +24,129 @@ chcp 65001
 
 ## Descrição do Projeto
 
-O projeto consiste em uma simulação de combate em turnos inspirada em jogos de cartas, onde o jogador controla um herói enfrentando inimigos utilizando diferentes tipos de cartas com efeitos variados.
+O projeto consiste em uma simulação de combate em turnos baseada em cartas, onde o jogador controla um herói enfrentando inimigos utilizando diferentes estratégias.
+
+Na Tarefa 5, o foco principal foi a **modularização do sistema**, **introdução de estrutura de progressão (mapa)** e **implementação de testes automatizados**, tornando o projeto mais robusto, testável e alinhado com boas práticas de engenharia de software.
 
 ---
 
-## Alterações da Tarefa 3 para a Tarefa 4
+## Alterações da Tarefa 4 para a Tarefa 5
 
-A Tarefa 4 introduziu melhorias tanto na estrutura do projeto quanto na jogabilidade.
-
-### 1. Refatoração da Arquitetura
-
-* Criação da classe `Jogo` para centralizar o fluxo principal da aplicação
-* Redução da responsabilidade da classe `App`, que passou a apenas iniciar o jogo
-* Melhor separação entre lógica de jogo, entidades e cartas
+A Tarefa 5 trouxe melhorias estruturais importantes e introduziu novos conceitos no projeto.
 
 ---
 
-### 2. Sistema de Cartas Expandido
+### 1. Separação do Sistema de Combate
 
-Foram adicionadas novas cartas com comportamentos distintos:
+* Criação da classe `Batalha`, responsável exclusivamente pelo fluxo de combate
+* Remoção da lógica de combate da classe `Jogo`
+* Melhor organização e divisão de responsabilidades
 
-* **Energizar**: recupera energia do herói
-* **Sacrifício**: causa alto dano ao custo de vida
-* **Fúria**: faz com que a próxima carta seja utilizada duas vezes
-* **Veneno+**: aplica maior quantidade de veneno
-* **Defesa+**: concede maior quantidade de escudo
+Agora:
 
-Essas cartas aumentam a possibilidade de estratégia durante o combate.
-
----
-
-### 3. Melhorias na Interface do Jogo
-
-* Exibição do custo de energia de cada carta
-* Exibição da descrição das cartas
-* Exibição do escudo dos inimigos
-* Mensagens mais claras sobre ações realizadas
-* Tratamento de entradas inválidas do usuário
+* `Jogo` → controla progresso geral
+* `Batalha` → controla combate
 
 ---
 
-### 4. Ajustes na Lógica de Combate
+### 2. Introdução do Sistema de Mapa
 
-* Verificação de energia antes de utilizar cartas
-* Cartas não são descartadas quando não podem ser utilizadas
-* Melhor visualização do dano causado e absorvido por escudo
-* Aplicação de efeitos como veneno de forma consistente
+* Implementação das classes `Mapa` e `NoMapa`
+* Estrutura de progressão entre batalhas
+* Possibilidade de expansão para múltiplos caminhos
 
----
+Funcionalidades:
 
-### 5. Sistema de Entrada (Scanner)
-
-* Implementação de validação para evitar erros como `NoSuchElementException`
-* Método auxiliar para leitura segura de inteiros
+* Avançar entre nós do mapa
+* Encadear batalhas
+* Representar progresso do jogador
 
 ---
 
-### 6. Integração com Gradle
+### 3. Melhor Modularização
 
-O projeto foi reorganizado para utilizar Gradle corretamente:
+O sistema foi reorganizado para melhorar:
 
-* Estrutura padrão (`app/src/main/java`)
-* Configuração do `build.gradle` com plugin `application`
-* Definição da classe principal
-* Configuração de entrada padrão (`standardInput = System.in`)
-* Ajuste de encoding para UTF-8
+* Reutilização de código
+* Legibilidade
+* Manutenção futura
 
----
+Principais melhorias:
 
-### 7. Correção de Problemas Técnicos
-
-Durante a implementação, foram resolvidos diversos problemas:
-
-* Erro de leitura do `Scanner` ao executar com Gradle
-* Problemas de encoding (acentuação incorreta no terminal)
-* Conflitos de merge no Git
-* Organização incorreta do repositório (remoção de pastas por tarefa)
+* Separação clara entre lógica de combate e fluxo do jogo
+* Redução de acoplamento entre classes
+* Código mais orientado a objetos
 
 ---
 
-### 8. Reorganização do Repositório
+### 4. Implementação de Testes Automatizados
 
-Durante o desenvolvimento da Tarefa 4, foi identificada uma inconsistência na organização do repositório utilizada nas etapas anteriores. O projeto estava estruturado em múltiplas pastas separadas por tarefa (por exemplo, `Tarefa1`, `Tarefa2`, etc.), o que não está alinhado com as boas práticas de versionamento com Git.
+Foi introduzido suporte a testes com JUnit.
 
-Conforme orientação recebida na avaliação da etapa anterior, a abordagem correta consiste em manter uma única base de código, utilizando o histórico de commits e o uso de *tags* para representar cada entrega.
+Foram criadas classes de teste como:
 
-Dessa forma, optou-se por remover a estrutura anterior e criar um novo repositório com organização adequada, contendo apenas a versão mais recente do projeto. Essa decisão permitiu:
+* `CartasTest`
+* `BatalhaTest`
+* `MapaTest`
 
-* Melhor alinhamento com o fluxo de versionamento esperado (Gitflow básico)
-* Eliminação de redundâncias e código duplicado
-* Estrutura mais limpa e profissional
-* Maior clareza na evolução do projeto ao longo das entregas
+Os testes cobrem:
 
-A versão correspondente a esta entrega foi marcada com a tag `v4.0`, conforme solicitado.
+* Uso de cartas
+* Aplicação de efeitos (dano, veneno, cura, etc.)
+* Fluxo básico de combate
+* Progressão no mapa
 
 ---
 
+### 5. Integração com JaCoCo
+
+* Adição de análise de cobertura de testes
+* Geração de relatório HTML
+
+Execução:
+
+```
+./gradlew test
+./gradlew jacocoTestReport
+```
+
+Relatório disponível em:
+
+```
+app/build/reports/jacoco/test/html/index.html
+```
+
+---
+
+### 6. Melhoria na Testabilidade
+
+Alterações foram feitas para permitir testes automatizados:
+
+* Uso de `Scanner` customizado para simular entrada
+* Separação de lógica interativa e lógica de execução
+* Métodos mais independentes
+
+---
+
+### 7. Expansão do Sistema de Cartas
+
+As cartas existentes foram mantidas e integradas ao novo sistema modular.
+
+O sistema agora suporta melhor:
+
+* Extensão de novas cartas
+* Testes individuais por tipo de carta
+* Combinação de efeitos
+
+---
+
+### 8. Ajustes Estruturais
+
+* Melhor organização entre pacotes e responsabilidades
+* Correções de dependências entre classes
+* Ajustes para compatibilidade com testes automatizados
+
+---
 
 ## Organização do Projeto
 
@@ -127,17 +154,20 @@ O projeto segue a estrutura padrão de aplicações Gradle:
 
 ```
 app/
- └── src/main/java/
+ ├── src/main/java/   → código principal
+ └── src/test/java/   → testes automatizados
 ```
-
-O versionamento das tarefas foi realizado por meio de **tags no Git**, conforme orientado.
 
 ---
 
 ## Considerações Finais
 
-A Tarefa 4 consolidou a estrutura do projeto e melhorou significativamente a experiência do usuário, além de corrigir problemas identificados na etapa anterior.
+A Tarefa 5 representa uma evolução significativa do projeto, com foco em:
 
-As alterações realizadas permitiram uma aplicação mais organizada, robusta e alinhada com boas práticas de desenvolvimento.
+* Arquitetura mais limpa e modular
+* Introdução de testes automatizados
+* Maior facilidade de manutenção e expansão
+
+Essas melhorias tornam o sistema mais próximo de um projeto profissional, seguindo boas práticas de desenvolvimento e preparação para futuras extensões.
 
 ---
