@@ -103,6 +103,24 @@ Durante a implementação, foram resolvidos diversos problemas:
 
 ---
 
+### 8. Reorganização do Repositório
+
+Durante o desenvolvimento da Tarefa 4, foi identificada uma inconsistência na organização do repositório utilizada nas etapas anteriores. O projeto estava estruturado em múltiplas pastas separadas por tarefa (por exemplo, `Tarefa1`, `Tarefa2`, etc.), o que não está alinhado com as boas práticas de versionamento com Git.
+
+Conforme orientação recebida na avaliação da etapa anterior, a abordagem correta consiste em manter uma única base de código, utilizando o histórico de commits e o uso de *tags* para representar cada entrega.
+
+Dessa forma, optou-se por remover a estrutura anterior e criar um novo repositório com organização adequada, contendo apenas a versão mais recente do projeto. Essa decisão permitiu:
+
+* Melhor alinhamento com o fluxo de versionamento esperado (Gitflow básico)
+* Eliminação de redundâncias e código duplicado
+* Estrutura mais limpa e profissional
+* Maior clareza na evolução do projeto ao longo das entregas
+
+A versão correspondente a esta entrega foi marcada com a tag `v4.0`, conforme solicitado.
+
+---
+
+
 ## Organização do Projeto
 
 O projeto segue a estrutura padrão de aplicações Gradle:
