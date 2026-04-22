@@ -2,7 +2,7 @@
 
 ## Autor
 
-Leonardo Batista Da Silva
+**Leonardo Batista Da Silva**
 
 ---
 
@@ -26,7 +26,7 @@ chcp 65001
 
 O projeto consiste em uma simulação de combate em turnos baseada em cartas, onde o jogador controla um herói enfrentando inimigos utilizando diferentes estratégias.
 
-Na Tarefa 5, o foco principal foi a **modularização do sistema**, **introdução de estrutura de progressão (mapa)** e **implementação de testes automatizados**, tornando o projeto mais robusto, testável e alinhado com boas práticas de engenharia de software.
+Na **Tarefa 5**, o foco principal foi a **modularização do sistema**, **introdução de um sistema de mapa** e a **implementação de testes automatizados**, tornando o projeto mais robusto e alinhado com boas práticas de engenharia de software.
 
 ---
 
@@ -40,12 +40,12 @@ A Tarefa 5 trouxe melhorias estruturais importantes e introduziu novos conceitos
 
 * Criação da classe `Batalha`, responsável exclusivamente pelo fluxo de combate
 * Remoção da lógica de combate da classe `Jogo`
-* Melhor organização e divisão de responsabilidades
+* Melhor divisão de responsabilidades
 
 Agora:
 
-* `Jogo` → controla progresso geral
-* `Batalha` → controla combate
+* `Jogo` → controla o fluxo geral
+* `Batalha` → controla o combate
 
 ---
 
@@ -57,7 +57,7 @@ Agora:
 
 Funcionalidades:
 
-* Avançar entre nós do mapa
+* Avançar entre nós
 * Encadear batalhas
 * Representar progresso do jogador
 
@@ -67,23 +67,23 @@ Funcionalidades:
 
 O sistema foi reorganizado para melhorar:
 
-* Reutilização de código
-* Legibilidade
-* Manutenção futura
+* **Reutilização de código**
+* **Legibilidade**
+* **Manutenção futura**
 
 Principais melhorias:
 
 * Separação clara entre lógica de combate e fluxo do jogo
-* Redução de acoplamento entre classes
+* Redução de acoplamento
 * Código mais orientado a objetos
 
 ---
 
 ### 4. Implementação de Testes Automatizados
 
-Foi introduzido suporte a testes com JUnit.
+Foi introduzido suporte a testes com **JUnit**.
 
-Foram criadas classes de teste como:
+Foram criadas classes como:
 
 * `CartasTest`
 * `BatalhaTest`
@@ -92,8 +92,8 @@ Foram criadas classes de teste como:
 Os testes cobrem:
 
 * Uso de cartas
-* Aplicação de efeitos (dano, veneno, cura, etc.)
-* Fluxo básico de combate
+* Aplicação de efeitos
+* Fluxo de combate
 * Progressão no mapa
 
 ---
@@ -120,31 +120,27 @@ app/build/reports/jacoco/test/html/index.html
 
 ### 6. Melhoria na Testabilidade
 
-Alterações foram feitas para permitir testes automatizados:
-
-* Uso de `Scanner` customizado para simular entrada
-* Separação de lógica interativa e lógica de execução
+* Uso de `Scanner` simulado para testes
+* Separação entre entrada e lógica
 * Métodos mais independentes
 
 ---
 
 ### 7. Expansão do Sistema de Cartas
 
-As cartas existentes foram mantidas e integradas ao novo sistema modular.
+O sistema de cartas foi mantido e integrado à nova arquitetura, permitindo:
 
-O sistema agora suporta melhor:
-
-* Extensão de novas cartas
-* Testes individuais por tipo de carta
+* Criação de novas cartas com facilidade
+* Testes isolados por tipo de carta
 * Combinação de efeitos
 
 ---
 
 ### 8. Ajustes Estruturais
 
-* Melhor organização entre pacotes e responsabilidades
-* Correções de dependências entre classes
-* Ajustes para compatibilidade com testes automatizados
+* Melhor organização do projeto
+* Correção de dependências
+* Compatibilidade com testes automatizados
 
 ---
 
@@ -164,10 +160,8 @@ app/
 
 A Tarefa 5 representa uma evolução significativa do projeto, com foco em:
 
-* Arquitetura mais limpa e modular
-* Introdução de testes automatizados
-* Maior facilidade de manutenção e expansão
+* **Arquitetura mais limpa e modular**
+* **Testes automatizados**
+* **Facilidade de manutenção e expansão**
 
-Essas melhorias tornam o sistema mais próximo de um projeto profissional, seguindo boas práticas de desenvolvimento e preparação para futuras extensões.
-
----
+O sistema está agora mais robusto e preparado para evoluções futuras.
